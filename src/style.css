@@ -1,0 +1,28 @@
+body {
+	font-family: 'Courier New', Courier;
+	font-weight: 700;
+}
+
+.maintenance {
+	text-align: center;
+	padding: 5px;
+}
+
+.profile {
+	text-align: left;
+	font-size: 10pt;
+	padding: 1px;
+	margin: 6px;
+	line-height: .5;
+}
+
+.img-m {
+	max-width: 60%;
+	min-width: 50%;
+}
+
+
+.img-pr {
+	max-width: 60px;
+	margin: 10px;
+}
