@@ -1,4 +1,4 @@
-window.onload = function() {
+viewLoad = function() {
 	var viewsDoc = document.getElementById("views");
 	var hits = new XMLHttpRequest();
 	hits.open("GET", "https://api.countapi.xyz/hit/monupsr/monu.rf.gd");
@@ -8,3 +8,4 @@ window.onload = function() {
 	}; hits.onerror = function() {};
 	hits.send();
 }
+viewLoad();
