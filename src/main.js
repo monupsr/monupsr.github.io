@@ -5,7 +5,7 @@ viewLoad = function() {
 	hits.responseType = "json";
 	hits.onload = function() {
 		viewsDoc.innerHTML = `<sup><i>👁️ 0${this.response.value}</i></sup>`;
-	}; hits.onerror = function() {};
+	}; hits.onerror = function() {alert(0)};
 	hits.send();
 }
 viewLoad();
