@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Next-Level Profile</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+}
+
+/* Animated Background */
+body::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background: conic-gradient(from 0deg, #00f2ff, #ff00c8, #00f2ff);
+  animation: rotate 10s linear infinite;
+  opacity:0.15;
+}
+
+@keyframes rotate{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+/* Glass Card */
+.container{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.card{
+  width:320px;
+  height:450px;
+  border-radius:20px;
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.2);
+  box-shadow:0 0 40px rgba(0,255,255,0.3);
+  overflow:hidden;
+  transition:0.5s;
+  position:relative;
+}
+
+/* Glow border animation */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:linear-gradient(45deg,#00f2ff,#ff00c8,#00f2ff);
+  z-index:-1;
+  animation: borderAnim 6s linear infinite;
+}
+
+@keyframes borderAnim{
+  0%{filter:hue-rotate(0deg);}
+  100%{filter:hue-rotate(360deg);}
+}
+
+.card:hover{
+  transform: scale(1.08) rotateY(10deg);
+}
+
+/* Profile Image */
+.profile{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  margin:30px auto;
+  background:url('https://i.pravatar.cc/300') center/cover;
+  border:3px solid #00f2ff;
+  box-shadow:0 0 25px #00f2ff;
+  transition:0.5s;
+}
+
+.profile:hover{
+  transform: rotate(360deg) scale(1.1);
+}
+
+/* Text */
+h2{
+  text-align:center;
+  color:white;
+}
+
+p{
+  text-align:center;
+  color:#ccc;
+  margin:10px;
+}
+
+/* Social icons */
+.social{
+  display:flex;
+  justify-content:center;
+  margin-top:20px;
+  gap:15px;
+}
+
+.social div{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background: rgba(255,255,255,0.1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  cursor:pointer;
+  transition:0.4s;
+}
+
+.social div:hover{
+  background:#00f2ff;
+  transform: translateY(-10px) scale(1.2);
+  box-shadow:0 0 20px #00f2ff;
+}
+
+/* Floating particles */
+.particles span{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:#00f2ff;
+  border-radius:50%;
+  animation: float 10s linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- particles -->
+<div class="particles">
+  <span style="left:10%;animation-duration:8s;"></span>
+  <span style="left:30%;animation-duration:12s;"></span>
+  <span style="left:50%;animation-duration:6s;"></span>
+  <span style="left:70%;animation-duration:10s;"></span>
+  <span style="left:90%;animation-duration:14s;"></span>
+</div>
+
+<div class="container">
+  <div class="card">
+    
+    <div class="profile"></div>
+
+    <h2>Your Name</h2>
+    <p>Creative Developer | UI Artist</p>
+
+    <div class="social">
+      <div>F</div>
+      <div>I</div>
+      <div>T</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Mouse move par 3D tilt effect
+document.addEventListener("mousemove", (e)=>{
+  const card = document.querySelector(".card");
+  let x = (window.innerWidth/2 - e.pageX)/20;
+  let y = (window.innerHeight/2 - e.pageY)/20;
+  card.style.transform = `rotateY(${x}deg) rotateX(${y}deg) scale(1.05)`;
+});
+</script>
+
+</body>
+</html>
