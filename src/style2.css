@@ -1,0 +1,44 @@
+body {
+	font-family: 'Courier New', Courier;
+	font-weight: 700;
+}
+.maintenance {
+	text-align: center;
+	padding: 5px;
+}
+.profile {
+	text-align: left;
+	font-size: 10pt;
+	padding: 1px;
+	margin: 6px;
+	line-height: .5;
+}
+.img-m {
+	max-width: 60%;
+	min-width: 50%;
+}
+.img-pr {
+	max-width: 60px;
+	margin: 10px;
+	border-radius: 50%;
+	opacity: 50%;
+	
+}
+
+.countdown {
+ color: hsla(360, 100%, 33%, 1);
+ font-size: 1.2em;
+ animation: countDown 5s linear infinite;
+}
+
+@keyframes countDown {
+ 0% {
+  color: hsla(0, 100%, 30%, 1);
+ }
+ 50% {
+  color: hsla(180, 100%, 30%, 1);
+ }
+ 100% {
+  color: hsla(360, 100%, 30%, 1);
+ }
+}
