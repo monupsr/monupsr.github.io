@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+ <meta name="description" content="Full-stack developer & designer crafting precision digital experiences." />
+ <title>Monu Sharma</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body>
+ 
+ <div id="cursor"></div>
+ <div id="cursor-ring"></div>
+ 
+ <div class="bg-scene" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="orb orb4"></div>
+  <div class="particles" id="ptcls"></div>
+  <div class="scanline"></div>
+  <div class="noise"></div>
+ </div>
+ 
+ <header>
+  <nav class="nav-inner" aria-label="Primary navigation">
+   <a href="#" class="nav-logo"><span class="logo-dot"></span>MS.dev</a>
+   <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+   </ul>
+   <div class="nav-right">
+    <div class="status"><span class="dot"></span>Available</div>
+    <button class="toggle" id="themeToggle" aria-label="Toggle theme"></button>
+   </div>
+  </nav>
+ </header>
+ 
+ <main>
+  <div class="wrapper">
+   
+   <div class="hero">
+    <h2>
+     Monu Sharma
+     <span class="grad"></span>
+    </h2>
+    <div class="hero-eyebrow">Full-Stack Dev</div>
+    <p class="hero-desc">
+     Just a playground where I turn random midnight thoughts into web pages. Move along, nothing professional to see here!
+    </p>
+    <div class="typed-wrap">
+     <span class="typed-txt" id="typed"></span><span class="caret"></span>
+    </div>
+    <div class="cta-row">
+     <a href="#work" class="btn btn-p">View my work ↗</a>
+     <a href="#contact" class="btn btn-g">Get in touch</a>
+    </div>
+    <div class="scroll-hint">
+     <div class="s-line"></div>
+     Scroll to explore
+    </div>
+   </div>
+   
+   <section id="work">
+    <div class="sec-head rv">
+     <span class="sec-num">01</span>
+     <h2 class="sec-title">Pages</h2>
+    </div>
+    <div class="page-grid">
+     <a class="pcard rv d1" href="/Image-Puzzle">
+      <div class="pcard-shine"></div>
+      <div class="pcard-sweep"></div>
+      <div class="pc-top">
+       <span class="pc-num">01/01/2020</span>
+       <div class="pc-icon">⬡</div>
+      </div>
+      <div class="pc-body">
+       <span class="pc-title">Image Puzzle</span>
+       <span class="pc-desc">A casual puzzle game built to test your patience. You can change the difficulty, but honestly, even the easy mode might make you question your spatial awareness. Play at your own risk.</span>
+      </div>
+      <div class="pc-foot">
+       <span class="pc-tag">GAME</span>
+       <span class="pc-arr">solve it ↗</span>
+      </div>
+     </a>
+     <a class="pcard rv d2" href="/WhatsApp-To">
+      <div class="pcard-shine"></div>
+      <div class="pcard-sweep"></div>
+      <div class="pc-top">
+       <span class="pc-num">05/09/2020</span>
+       <div class="pc-icon">◈</div>
+      </div>
+      <div class="pc-body">
+       <span class="pc-title">WhatsApp Direct</span>
+       <span class="pc-desc">The ultimate tool for antisocial people. Text someone on WhatsApp without the lifelong commitment of saving their phone number in your contacts. Quick, clean, and zero drama.</span>
+      </div>
+      <div class="pc-foot">
+       <span class="pc-tag">UTILITY</span>
+       <span class="pc-arr">check number ↗</span>
+      </div>
+     </a>
+     <a class="pcard rv d3" href="Image-Zooming-Canvas">
+      <div class="pcard-shine"></div>
+      <div class="pcard-sweep"></div>
+      <div class="pc-top">
+       <span class="pc-num">15/06/2020</span>
+       <div class="pc-icon">◯</div>
+      </div>
+      <div class="pc-body">
+       <span class="pc-title">Image Zoomer / Card</span>
+       <span class="pc-desc">Because sometimes regular size isn't enough. A neat little tool that lets you magnify specific parts of an image with smooth hover effects. Perfect for spotting hidden details or just passing time.</span>
+      </div>
+      <div class="pc-foot">
+       <span class="pc-tag">EXPERIMENT</span>
+       <span class="pc-arr">zoom in ↗</span>
+      </div>
+     </a>
+     <a class="pcard rv d4" href="/test-tools">
+      <div class="pcard-shine"></div>
+      <div class="pcard-sweep"></div>
+      <div class="pc-top">
+       <span class="pc-num">15/07/2020</span>
+       <div class="pc-icon">△</div>
+      </div>
+      <div class="pc-body">
+       <span class="pc-title">Audio Visualizer</span>
+       <span class="pc-desc">An interactive tool that turns audio frequencies into satisfying real-time beat animations. Built for testing sound waves, but mostly just used for staring at the red bars moving up and down while listening to background music.</span>
+      </div>
+      <div class="pc-foot">
+       <span class="pc-tag">AUDIO EXP</span>
+       <span class="pc-arr">see beats ↗</span>
+      </div>
+     </a>
+    </div>
+   </section>
+   
+   <section id="skills">
+    <div class="sec-head rv">
+     <span class="sec-num">02</span>
+     <h2 class="sec-title">Expertise</h2>
+    </div>
+    <div class="skill-grid rv" id="skillBars">
+     <div class="sk-item">
+      <div class="sk-meta"><span class="sk-name">SEARCHING CAPABILITY</span><span class="sk-pct">99%</span></div>
+      <div class="sk-track">
+       <div class="sk-fill" style="--w:99%;--d:.5s"></div>
+      </div>
+     </div>
+     <div class="sk-item">
+      <div class="sk-meta"><span class="sk-name">Procrastination / DELAYING WORK</span><span class="sk-pct">95%</span></div>
+      <div class="sk-track">
+       <div class="sk-fill" style="--w:95%;--d:.65s"></div>
+      </div>
+     </div>
+     <div class="sk-item">
+      <div class="sk-meta"><span class="sk-name">MAKING UNREALISTIC PLANS</span><span class="sk-pct">88%</span></div>
+      <div class="sk-track">
+       <div class="sk-fill" style="--w:88%;--d:.8s"></div>
+      </div>
+     </div>
+     <div class="sk-item">
+      <div class="sk-meta"><span class="sk-name">SCROLLING REELS & MEMES</span><span class="sk-pct">58%</span></div>
+      <div class="sk-track">
+       <div class="sk-fill" style="--w:58%;--d:.9s"></div>
+      </div>
+     </div>
+     <div class="sk-item">
+      <div class="sk-meta"><span class="sk-name">ACTUAL CODING EFFORT</span><span class="sk-pct">5%</span></div>
+      <div class="sk-track">
+       <div class="sk-fill" style="--w:5%;--d:1s"></div>
+      </div>
+     </div>
+    </div>
+    <div class="tags rv">
+     <span class="tag">JavaScript</span><span class="tag">Next.js</span><span class="tag">PHP</span>
+     <span class="tag">Node.js</span><span class="tag">mongoDB</span><span class="tag">MySQL</span>
+     <span class="tag">PostgreSQL</span><span class="tag">CSS</span><span class="tag">GraphQL</span>
+     <span class="tag">Animation</span><span class="tag">JAVA</span><span class="tag">UI & UX</span>
+    </div>
+   </section>
+   
+   <section id="about">
+    <div class="sec-head rv">
+     <span class="sec-num">03</span>
+     <h2 class="sec-title">Life Updates</h2>
+    </div>
+    <div class="tl rv">
+     <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+       <div class="tl-period">2024 - Present</div>
+       <div class="tl-role">Staying Awake Till 4 AM</div>
+       <div class="tl-place">Every Single Night · High Performance</div>
+      </div>
+     </div>
+     <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+       <div class="tl-period">2022 — 2024</div>
+       <div class="tl-role">Successfully Avoiding Group Activities</div>
+       <div class="tl-place">Real Life · Remote</div>
+      </div>
+     </div>
+     <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+       <div class="tl-period">2021 — 2022</div>
+       <div class="tl-role">Junior Bug Creator</div>
+       <div class="tl-place">Localhost:3000 · Part-time Investigator</div>
+      </div>
+     </div>
+     <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+       <div class="tl-period">2019 — 2021</div>
+       <div class="tl-role">HTML/CSS Wizard (Self-Proclaimed)</div>
+       <div class="tl-place">Acode · Just for Fun</div>
+      </div>
+     </div>
+    </div>
+   </section>
+   
+   <section id="contact">
+    <div class="sec-head rv">
+     <span class="sec-num">04</span>
+     <h2 class="sec-title">Contact</h2>
+    </div>
+    <p class="rv" style="color:var(--sub);margin-bottom:28px;max-width:440px">
+     Not looking for a job, freelance gigs, or anything that requires actual <b>effort</b>, mainly because I am <b>highly unqualified. </b>But if you have good movie recommendations, memes, or just want to appreciate my free-time creation, hit me up! High response rate during <b>midnight hours.</b>
+    </p>
+    <div class="cg">
+     <a class="cc rv d1" href="mailto: monupsr@yahoo.com">
+      <div class="cc-icon">✉</div>
+      <div><span class="cc-platform">Email</span><span class="cc-handle">monupsr@yahoo.com</span></div>
+     </a>
+     <a class="cc rv d2" href="https://x.com/monupsr">
+      <div class="cc-icon">𝕏</div>
+      <div><span class="cc-platform">Twitter / X</span><span class="cc-handle">@monupsr</span></div>
+     </a>
+     <a class="cc rv d3" href="https://instagram.com/_monu_parashar">
+      <div class="cc-icon">iG</div>
+      <div><span class="cc-platform">Instagram</span><span class="cc-handle">@_monu_parashar</span></div>
+     </a>
+     <a class="cc rv d4" href="https://github.com/monupsr">
+      <div class="cc-icon">&lt;/&gt;</div>
+      <div><span class="cc-platform">GitHub</span><span class="cc-handle">@monupsr</span></div>
+     </a>
+    </div>
+   </section>
+   
+  </div>
+ </main>
+ 
+ <footer>
+  <div class="foot">
+   <span>© 2026 Monu Sharma</span>
+   <span>Built with <em>♥</em> • BOREDOM · ✳️</span>
+  </div>
+ </footer>
+ <script src="src/main.js"></script>
+</body>
+
+</html>
