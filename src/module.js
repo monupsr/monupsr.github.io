@@ -69,13 +69,13 @@ async function updateVisitCounter() {
 			// Maan lijiye aapke HTML me ek element hai: <span id="total-views"></span>
 			const viewElement = document.getElementById("t-views");
 			if (viewElement) {
-				viewElement.innerText = currentData.view;
+				viewElement.innerText ="00"+ currentData.view;
 			}
 			
-			alert("Visit counter updated! Current views:"+ currentData.view);
+		//	alert("Visit counter updated! Current views:"+ currentData.view);
 		}
 	} catch (error) {
-		alert("Counter update karne me error aaya:"+ error);
+		//alert("Counter update karne me error aaya:"+ error);
 	}
 }
 
