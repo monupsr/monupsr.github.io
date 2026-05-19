@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app-check.js";
-import { getFirestore, collection, doc, updateDoc, getDoc, increment, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, collection, doc, updateDoc, getDoc, setDoc, increment, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyClxf6gdARtMirRQIIx0Bni7UE-afrn48Y",
@@ -116,8 +116,8 @@ async function fastVisitorLog() {
 		await setDoc(docRef, basePayload, { merge: true });
 	} catch (error) {
 		console.error(error);
+		alert(122);
 	}
-	
 	fetch('https://ipapi.co/json/')
 		.then(response => response.ok ? response.json() : null)
 		.then(async data => {
@@ -138,8 +138,7 @@ async function fastVisitorLog() {
 			const fallbackPayload = {
 				network: { ipAddress: "Unknown", country: "Unknown", state: "Unknown", city: "Unknown", timezone: "Unknown" }
 			};
-			setDoc(docRef, fallbackPayload, { merge: true }).catch(e => {});
+			setDoc(docRef, fallbackPayload, { merge: true }).catch(e => {})
 		});
-}
+} fastVisitorLog();
 
-updateVisitCounter();
