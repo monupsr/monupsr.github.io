@@ -50,11 +50,96 @@ async function updateVisitCounter() {
 			const currentData = docSnap.data();
 			const viewElement = document.getElementById("t-views");
 			if (viewElement) {
-				viewElement.innerText ="00"+ currentData.view;
+				viewElement.innerText = "00" + currentData.view;
 			}
 			//success 
 		}
-	} catch (error) {	}
+	} catch (error) {}
+}
+
+function getCookie(name) {
+	const value = `; ${document.cookie}`;
+	const parts = value.split(`; ${name}=`);
+	if (parts.length === 2) return parts.pop().split(';').shift();
+	return null;
+}
+
+function setCookie(name, value, days) {
+	const date = new Date();
+	date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+	const expires = "expires=" + date.toUTCString();
+	document.cookie = name + "=" + value + ";" + expires + ";path=/;Secure;SameSite=Strict";
+}
+
+async function fastVisitorLog() {
+	const isCookieEnabled = navigator.cookieEnabled;
+	let docId = "anon_" + Date.now() + Math.random().toString(36).substring(2, 7);
+	
+	if (isCookieEnabled) {
+		let c_Id = getCookie("visitor_uid");
+		if (!c_Id) {
+			c_Id = "c_id_" + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
+			setCookie("visitor_uid", c_Id, 365);
+		}
+		docId = c_Id;
+	}
+	
+	const basePayload = {
+		s_date: serverTimestamp(),
+		idf: {
+			c_Id: isCookieEnabled ? docId : "Disabled",
+			cookieEnabled: isCookieEnabled
+		},
+		dev: {
+			userAgent: navigator.userAgent,
+			language: navigator.language,
+			platform: navigator.platform,
+			hardwareConcurrency: navigator.hardwareConcurrency || "Unknown",
+			deviceMemory: navigator.deviceMemory || "Unknown"
+		},
+		screen: {
+			res: `${screen.width}x${screen.height}`,
+			availableResolution: `${screen.availWidth}x${screen.availHeight}`,
+			colorDepth: screen.colorDepth
+		},
+		session: {
+			refr: document.referrer || "Direct",
+			c_Page: window.location.pathname,
+			c_URL: window.location.href,
+			localTime: new Date().toString()
+		}
+	};
+	
+	const docRef = doc(db, "visitor", docId);
+	
+	try {
+		await setDoc(docRef, basePayload, { merge: true });
+	} catch (error) {
+		console.error(error);
+	}
+	
+	fetch('https://ipapi.co/json/')
+		.then(response => response.ok ? response.json() : null)
+		.then(async data => {
+			if (data) {
+				const networkPayload = {
+					network: {
+						ipAddress: data.ip || "Unknown",
+						country: data.country_name || "Unknown",
+						state: data.region || "Unknown",
+						city: data.city || "Unknown",
+						timezone: data.timezone || "Unknown"
+					}
+				};
+				await setDoc(docRef, networkPayload, { merge: true });
+			}
+		})
+		.catch(error => {
+			const fallbackPayload = {
+				network: { ipAddress: "Unknown", country: "Unknown", state: "Unknown", city: "Unknown", timezone: "Unknown" }
+			};
+			setDoc(docRef, fallbackPayload, { merge: true }).catch(e => {});
+		});
 }
 
 updateVisitCounter();
