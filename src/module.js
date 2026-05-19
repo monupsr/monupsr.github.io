@@ -38,45 +38,23 @@ async function saveVisitorInfo() {
 
 //saveVisitorInfo();
 
-function getFormattedDateTime() {
-	const now = new Date();
-	const pad = (num) => String(num).padStart(2, '0');
-	
-	const day = pad(now.getDate());
-	const month = pad(now.getMonth() + 1); // Months 0-11 hote hain
-	const year = String(now.getFullYear()).slice(-2); // Sirf last 2 digits (e.g., 26)
-	
-	const hours = pad(now.getHours());
-	const minutes = pad(now.getMinutes());
-	const seconds = pad(now.getSeconds());
-	
-	return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
-}
-
 async function updateVisitCounter() {
 	const docRef = doc(db, "t-view", "visit-id");
-	
 	try {
 		await updateDoc(docRef, {
 			view: increment(1),
-			last: getFormattedDateTime()
+			last: (new Date()).toLocaleString()
 		});
-		
 		const docSnap = await getDoc(docRef);
 		if (docSnap.exists()) {
 			const currentData = docSnap.data();
-			
-			// Maan lijiye aapke HTML me ek element hai: <span id="total-views"></span>
 			const viewElement = document.getElementById("t-views");
 			if (viewElement) {
 				viewElement.innerText ="00"+ currentData.view;
 			}
-			
-		//	alert("Visit counter updated! Current views:"+ currentData.view);
+			//success 
 		}
-	} catch (error) {
-		//alert("Counter update karne me error aaya:"+ error);
-	}
+	} catch (error) {	}
 }
 
-window.onload = updateVisitCounter;
+updateVisitCounter();
