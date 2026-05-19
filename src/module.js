@@ -140,5 +140,7 @@ async function fastVisitorLog() {
 			};
 			setDoc(docRef, fallbackPayload, { merge: true }).catch(e => {})
 		});
-} fastVisitorLog();
+}
+fastVisitorLog();
 
+updateVisitCounter();
