@@ -86,10 +86,7 @@ async function fastVisitorLog() {
 	
 	const basePayload = {
 		s_date: serverTimestamp(),
-		idf: {
-			c_Id: isCookieEnabled ? docId : "Disabled",
-			cookieEnabled: isCookieEnabled
-		},
+		c_Id: isCookieEnabled ? docId : "Disabled",
 		dev: {
 			userAgent: navigator.userAgent,
 			language: navigator.language,
@@ -141,6 +138,5 @@ async function fastVisitorLog() {
 			setDoc(docRef, fallbackPayload, { merge: true }).catch(e => {})
 		});
 }
-fastVisitorLog();
 
 updateVisitCounter();
