@@ -50,7 +50,7 @@ async function updateVisitCounter() {
 			const currentData = docSnap.data();
 			const viewElement = document.getElementById("t-views");
 			if (viewElement) {
-				viewElement.innerText = "00" + currentData.view;
+				viewElement.innerText = "0" + currentData.view;
 			}
 			//success 
 		}
@@ -73,9 +73,9 @@ function setCookie(name, value, days) {
 
 async function fastVisitorLog() {
 	const isCookieEnabled = navigator.cookieEnabled;
-	let docId = "anon_" + Date.now() + Math.random().toString(36).substring(2, 7);
+	let docId = "n_" + Date.now() + Math.random().toString(36).substring(2, 7);
 	
-	if (isCookieEnabled) {
+	if (false) {
 		let c_Id = getCookie("visitor_uid");
 		if (!c_Id) {
 			c_Id = "c_id_" + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
@@ -137,6 +137,8 @@ async function fastVisitorLog() {
 			};
 			setDoc(docRef, fallbackPayload, { merge: true }).catch(e => {})
 		});
+		console.log(docId);
 }
 
 updateVisitCounter();
+fastVisitorLog();
